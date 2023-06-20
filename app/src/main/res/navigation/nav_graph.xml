@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.a02094311.crypt.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_vaultFragment"
+            app:destination="@id/vaultFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.a02094311.crypt.RegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" >
+        <action
+            android:id="@+id/action_registerFragment_to_vaultFragment"
+            app:destination="@id/vaultFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/vaultFragment"
+        android:name="com.a02094311.crypt.VaultFragment"
+        android:label="fragment_vault"
+        tools:layout="@layout/fragment_vault" >
+        <action
+            android:id="@+id/action_vaultFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_vaultFragment_to_addData"
+            app:destination="@id/addData" />
+        <action
+            android:id="@+id/action_vaultFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+        <argument
+            android:name="password"
+            app:argType="string"
+            android:defaultValue="null" />
+    </fragment>
+    <fragment
+        android:id="@+id/changePasswordFragment"
+        android:name="com.a02094311.crypt.ChangePasswordFragment"
+        android:label="fragment_change_password"
+        tools:layout="@layout/fragment_change_password" >
+        <action
+            android:id="@+id/action_changePasswordFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addData"
+        android:name="com.a02094311.crypt.AddData"
+        android:label="fragment_add_data"
+        tools:layout="@layout/fragment_add_data" >
+        <action
+            android:id="@+id/action_addData_to_vaultFragment"
+            app:destination="@id/vaultFragment" />
+        <argument
+            android:name="password"
+            app:argType="string"
+            android:defaultValue="null" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.a02094311.crypt.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" >
+        <action
+            android:id="@+id/action_settingsFragment_to_changePasswordFragment"
+            app:destination="@id/changePasswordFragment" />
+    </fragment>
+</navigation>
